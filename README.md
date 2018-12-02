@@ -1,4 +1,16 @@
-# ListaCompra
+# Lista Compra - Interface Web Responsiva
+
+[![Build status](https://pythonpythonics.visualstudio.com/ListaCompra/_apis/build/status/OurList-Web_Angular-CI)](https://pythonpythonics.visualstudio.com/ListaCompra/_build/latest?definitionId=11)
+
+[![Release status](https://pythonpythonics.vsrm.visualstudio.com/_apis/public/Release/badge/bf5fa160-2da7-431e-95d4-3c37e142d1ef/4/4)](https://pythonpythonics.visualstudio.com/ListaCompra/_release?definitionId=4)
+
+Aplicativo para entrega na matéria de Laboratório de engenharia de software.
+
+## Definição
+
+Lista de Compras divida em grupos os quais possuem listas que pessoas associadas, em diferente níveis de permissão, ao grupo gerenciam.
+
+# ListaCompra - Angular CLI Definition
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
@@ -25,3 +37,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# Considerações Finais do Repositório
+
+## Autores
+
+* Isabel Noguti
+* João Garcia
+
+## Auxílio no desenvolvimento
+
+* [Frank Wendel](https://github.com/FrankWendel)
+* [Livia Hidemi](https://github.com/hidemitakiya)
