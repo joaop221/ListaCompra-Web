@@ -4,4 +4,4 @@ import { LoginComponent } from './login/login.component';
 export {
     HomeComponent,
     LoginComponent
-}
+};

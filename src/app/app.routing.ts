@@ -16,4 +16,4 @@ export const routes: Routes = [
         component: pages.LoginComponent,
         data: { menu: false, footer: true }
     }
-]
+];

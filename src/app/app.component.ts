@@ -15,11 +15,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.router.events.subscribe(event => {
-      if(event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd) {
         this.menu = this.route.root.firstChild.snapshot.data['menu'];
         this.footer = this.route.root.firstChild.snapshot.data['footer'];
       }
-    }); 
+    });
   }
 
 }

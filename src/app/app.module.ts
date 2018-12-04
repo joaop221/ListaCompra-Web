@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 
-import { guards } from "./guards"
+import { guards } from './guards';
 import { routes } from './app.routing';
 
 @NgModule({
