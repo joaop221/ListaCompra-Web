@@ -1,5 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-    
+<div class="app-global">
+    <app-menu *ngIf="menu"></app-menu>
+    <div class="content-global">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer *ngIf="footer"></app-footer>
 </div>
-
