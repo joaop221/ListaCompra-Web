@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule, MatSidenavModule } from '@angular/material';
 
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
@@ -25,6 +25,7 @@ import { routes } from './app.routing';
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatToolbarModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
