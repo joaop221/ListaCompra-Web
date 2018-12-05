@@ -1,6 +1,10 @@
 <div class="app-global">
-    <app-menu *ngIf="menu"></app-menu>
-    <div class="content-global">
+    <app-menu *ngIf="menu">
+        <div class="content-global">
+            <router-outlet></router-outlet>
+        </div>
+    </app-menu>
+    <div *ngIf="!menu" class="content-global">
         <router-outlet></router-outlet>
     </div>
     <app-footer *ngIf="footer"></app-footer>
