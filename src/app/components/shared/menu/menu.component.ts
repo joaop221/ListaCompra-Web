@@ -21,8 +21,8 @@ export class MenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.menuItens = [
       {
-        text: 'home',
-        link: 'home'
+        text: 'login',
+        link: 'login'
       }
     ];
   }
