@@ -52,6 +52,8 @@ import { LoginComponent } from './components/pages/login/login.component';
 
 import { guards } from './guards';
 import { routes } from './app.routing';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -103,7 +105,8 @@ import { routes } from './app.routing';
     MatTooltipModule,
     MatTreeModule,
     ScrollingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     guards
