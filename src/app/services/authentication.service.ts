@@ -9,7 +9,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(auth: AuthModel) {
-        return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { nomeUsuario: auth.login, senha: auth.senha })
+        return this.http.post<any>(`${environment.apiUrl}/Conta/Login`, { nomeUsuario: auth.login, senha: auth.senha })
             .pipe(map(user => {
                 if (user && user.jwtToken) {
                     localStorage.setItem('currentAuth', JSON.stringify(user));
