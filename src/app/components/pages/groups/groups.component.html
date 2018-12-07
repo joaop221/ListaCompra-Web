@@ -1,4 +1,8 @@
 <mat-list role="list">
-    <mat-list-item *ngFor="let group of groupList" role="listitem">{{group.nome}}</mat-list-item>
+    <h3 mat-subheader>Grupos</h3>
+    <mat-list-item *ngFor="let group of groupList" role="listitem" class="title-case">
+        <mat-icon class="format-list">group</mat-icon>
+        {{group.nome}}
+    </mat-list-item>
 </mat-list>
 <button (click)="add()" mat-fab color="primary" class="btn-add"><mat-icon>playlist_add</mat-icon></button>

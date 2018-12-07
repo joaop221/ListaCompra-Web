@@ -1,7 +1,7 @@
-<form [formGroup]="groupForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="groupForm" (ngSubmit)="onSubmit()" class="group-form">
   <mat-form-field>
-    <input formControlName="grupo" matInput type="text" placeholder="Nome do Grupo" />
-    <mat-error *ngIf="form.grupo.invalid">
+    <input formControlName="group" matInput type="text" placeholder="Nome do Grupo" />
+    <mat-error *ngIf="form.group.invalid">
       Nome do Grupo é obrigatório
     </mat-error>
   </mat-form-field>

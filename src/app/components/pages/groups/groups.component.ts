@@ -5,7 +5,6 @@ import { GroupModalComponent } from '../../shared/group-modal/group-modal.compon
 import { GroupModel } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
 
-
 @Component({
   selector: 'app-groups',
   templateUrl: './groups.component.html',
@@ -21,14 +20,22 @@ export class GroupsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.updateList();
+  }
+
+  updateList() {
     this.groupService.listar().subscribe(item => this.groupList = item);
   }
 
   add() {
     const dialogConfig = new MatDialogConfig();
+
     dialogConfig.width = '500px';
     dialogConfig.height = '200px';
     dialogConfig.scrollStrategy = this.overlay.scrollStrategies.noop();
-    this.dialog.open(GroupModalComponent, dialogConfig);
+
+    const dialogRef = this.dialog.open(GroupModalComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(() => this.updateList());
   }
 }
