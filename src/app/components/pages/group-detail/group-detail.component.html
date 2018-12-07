@@ -1,0 +1,9 @@
+<h4 class="title-case title-group">Grupo: {{group.grupo.nome}}</h4>
+<mat-list role="list">
+    <h3 mat-subheader>Listas</h3>
+    <mat-list-item mat-list-item *ngFor="let item of lists" role="listitem" class="title-case" (click)="onSelect(item)">
+        <mat-icon class="format-list">format_list_bulleted</mat-icon>
+        {{item.titulo}}
+    </mat-list-item>
+</mat-list>
+<button (click)="add()" mat-fab color="primary" class="btn-add"><mat-icon>playlist_add</mat-icon></button>

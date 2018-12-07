@@ -1,6 +1,6 @@
 <mat-list role="list">
     <h3 mat-subheader>Grupos</h3>
-    <mat-list-item *ngFor="let group of groupList" role="listitem" class="title-case" (click)="onSelect(group)">
+    <mat-list-item mat-list-item *ngFor="let group of groupList" role="listitem" class="title-case" (click)="onSelect(group)">
         <mat-icon class="format-list">group</mat-icon>
         {{group.nome}}
     </mat-list-item>

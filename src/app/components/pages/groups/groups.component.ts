@@ -30,7 +30,7 @@ export class GroupsComponent implements OnInit {
   }
 
   onSelect(group: GroupModel) {
-    this.router.navigate(['lists']);
+    this.router.navigate([`groups/${group.id}`]);
   }
 
   add() {

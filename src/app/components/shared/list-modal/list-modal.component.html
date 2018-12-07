@@ -1,0 +1,10 @@
+<form [formGroup]="listForm" (ngSubmit)="onSubmit()" class="group-form">
+    <mat-form-field>
+      <input formControlName="list" matInput type="text" placeholder="Nome da Lista" />
+      <mat-error *ngIf="form.list.invalid">
+        Nome da Lista é obrigatória
+      </mat-error>
+    </mat-form-field>
+  
+    <button type="submit" mat-raised-button color="primary">Criar</button>
+  </form>
