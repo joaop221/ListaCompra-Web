@@ -1,6 +1,36 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, Input} from '@angular/core';
 
+const loggedItens = [
+  {
+    text: 'Grupos',
+    link: 'groups'
+  },
+  {
+    text: 'Listas',
+    link: 'lists',
+  },
+  {
+    text: 'Notificações',
+    link: 'notifications',
+  },
+  {
+    text: 'Configurações',
+    link: 'settings',
+  },
+  {
+    text: 'Sair',
+    link: 'logout'
+  }
+];
+
+const publicItens = [
+  {
+    text: 'Login',
+    link: 'login',
+  }
+];
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -19,12 +49,11 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.menuItens = [
-      {
-        text: 'login',
-        link: 'login'
-      }
-    ];
+    if (localStorage.getItem('currentAuth')) {
+      this.menuItens = loggedItens;
+    } else {
+      this.menuItens = publicItens;
+    }
   }
 
   ngOnDestroy(): void {

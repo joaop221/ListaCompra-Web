@@ -1,2 +1,10 @@
-<input value="" placeholder="insira o nome do grupo"><br/>
-<button (click)="close()">Fechar</button>
+<form [formGroup]="groupForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input formControlName="grupo" matInput type="text" placeholder="Nome do Grupo" />
+    <mat-error *ngIf="form.grupo.invalid">
+      Nome do Grupo é obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Criar</button>
+</form>
