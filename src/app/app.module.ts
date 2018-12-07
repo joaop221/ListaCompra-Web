@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -52,12 +54,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { GroupsComponent } from './components/pages/groups/groups.component';
+import { LogoutComponent } from './components/pages/logout/logout.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { routes } from './app.routing';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { AuthenticationService } from './services/authentication.service';
@@ -71,7 +72,8 @@ import { GroupService } from './services/group.service';
     LoginComponent,
     FooterComponent,
     GroupsComponent,
-    GroupModalComponent
+    GroupModalComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

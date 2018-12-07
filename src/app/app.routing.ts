@@ -17,6 +17,12 @@ export const routes: Routes = [
         data: { menu: false, footer: true }
     },
     {
+        path: 'logout',
+        pathMatch: 'full',
+        component: pages.LogoutComponent,
+        data: { menu: false, footer: false }
+    },
+    {
         path: 'groups',
         pathMatch: 'full',
         component: pages.GroupsComponent,
