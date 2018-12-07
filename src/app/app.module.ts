@@ -49,6 +49,7 @@ import { MenuComponent } from './components/shared/menu/menu.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { GroupsComponent } from './components/pages/groups/groups.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { routes } from './app.routing';
@@ -58,6 +59,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { AuthenticationService } from './services/authentication.service';
+import { CreateGroupModalComponent } from './components/pages/create-group-modal/create-group-modal.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { AuthenticationService } from './services/authentication.service';
     HomeComponent,
     MenuComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    GroupsComponent,
+    CreateGroupModalComponent
   ],
   imports: [
     BrowserModule,
@@ -108,6 +112,7 @@ import { AuthenticationService } from './services/authentication.service';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    MatDialogModule,
     ScrollingModule,
     RouterModule.forRoot(routes),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
@@ -118,6 +123,7 @@ import { AuthenticationService } from './services/authentication.service';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateGroupModalComponent]
 })
 export class AppModule { }

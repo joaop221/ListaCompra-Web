@@ -15,5 +15,11 @@ export const routes: Routes = [
         pathMatch: 'full',
         component: pages.LoginComponent,
         data: { menu: false, footer: true }
+    },
+    {
+        path: 'groups',
+        pathMatch: 'full',
+        component: pages.GroupsComponent,
+        data: { menu: false, footer: true }
     }
 ];
