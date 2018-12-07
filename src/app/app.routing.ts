@@ -6,7 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 export const routes: Routes = [
     {
         path: '',
-        pathMatch: 'prefix',
+        pathMatch: 'full',
         component: pages.HomeComponent,
         data: { menu: true, footer: false }
     },

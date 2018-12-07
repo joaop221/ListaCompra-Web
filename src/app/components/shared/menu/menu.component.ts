@@ -4,26 +4,26 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit, Input} from '@angular/
 const loggedItens = [
   {
     text: 'Grupos',
-    link: 'groups'
+    link: '/groups'
   },
   {
     text: 'Notificações',
-    link: 'notifications',
+    link: '/notifications',
   },
   {
     text: 'Configurações',
-    link: 'settings',
+    link: '/settings',
   },
   {
     text: 'Sair',
-    link: 'logout'
+    link: '/logout'
   }
 ];
 
 const publicItens = [
   {
     text: 'Login',
-    link: 'login',
+    link: '/login',
   }
 ];
 
