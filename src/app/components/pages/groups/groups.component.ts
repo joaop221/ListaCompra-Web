@@ -4,6 +4,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { GroupModalComponent } from '../../shared/group-modal/group-modal.component';
 import { GroupModel } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-groups',
@@ -16,6 +17,7 @@ export class GroupsComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private overlay: Overlay,
+    private router: Router,
     private groupService: GroupService
   ) {}
 
@@ -25,6 +27,10 @@ export class GroupsComponent implements OnInit {
 
   updateList() {
     this.groupService.listar().subscribe(item => this.groupList = item);
+  }
+
+  onSelect(group: GroupModel) {
+    this.router.navigate(['lists']);
   }
 
   add() {
