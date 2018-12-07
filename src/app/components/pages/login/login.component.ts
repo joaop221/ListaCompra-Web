@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { AuthModel } from 'src/app/models/auth.model';
+import { LoginModel } from 'src/app/models/login.model';
 import { first } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.invalid) {
       this.loading = true;
 
-      const authModel: AuthModel = {
+      const authModel: LoginModel = {
         login: this.form.login.value,
         senha: this.form.senha.value
       };

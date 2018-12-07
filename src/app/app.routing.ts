@@ -20,6 +20,6 @@ export const routes: Routes = [
         path: 'groups',
         pathMatch: 'full',
         component: pages.GroupsComponent,
-        data: { menu: false, footer: true }
+        data: { menu: true, footer: true }
     }
 ];
