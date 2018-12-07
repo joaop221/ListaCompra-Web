@@ -28,5 +28,12 @@ export const routes: Routes = [
         component: pages.GroupsComponent,
         canActivate: [ AuthGuard ],
         data: { menu: true, footer: true }
+    },
+    {
+        path: 'groups/:id',
+        pathMatch: 'full',
+        component: pages.GroupDetailComponent,
+        canActivate: [ AuthGuard ],
+        data: { menu: true, footer: true }
     }
 ];

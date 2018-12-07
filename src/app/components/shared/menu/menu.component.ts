@@ -7,10 +7,6 @@ const loggedItens = [
     link: 'groups'
   },
   {
-    text: 'Listas',
-    link: 'lists',
-  },
-  {
     text: 'Notificações',
     link: 'notifications',
   },

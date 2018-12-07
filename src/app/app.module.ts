@@ -50,11 +50,13 @@ import {
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { GroupModalComponent } from './components/shared/group-modal/group-modal.component';
+import { ListModalComponent } from './components/shared/list-modal/list-modal.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { GroupsComponent } from './components/pages/groups/groups.component';
 import { LogoutComponent } from './components/pages/logout/logout.component';
+import { GroupDetailComponent } from './components/pages/group-detail/group-detail.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { routes } from './app.routing';
@@ -63,6 +65,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { AuthenticationService } from './services/authentication.service';
 import { GroupService } from './services/group.service';
+import { ListService } from './services/list.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +76,9 @@ import { GroupService } from './services/group.service';
     FooterComponent,
     GroupsComponent,
     GroupModalComponent,
-    LogoutComponent
+    LogoutComponent,
+    GroupDetailComponent,
+    ListModalComponent
   ],
   imports: [
     BrowserModule,
@@ -127,10 +132,14 @@ import { GroupService } from './services/group.service';
     AuthGuard,
     AuthenticationService,
     GroupService,
+    ListService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [GroupModalComponent]
+  entryComponents: [
+    GroupModalComponent,
+    ListModalComponent
+  ]
 })
 export class AppModule { }
