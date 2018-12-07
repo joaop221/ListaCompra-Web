@@ -47,6 +47,7 @@ import {
 
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
+import { GroupModalComponent } from './components/shared/group-modal/group-modal.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
@@ -60,7 +61,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { AuthenticationService } from './services/authentication.service';
-import { CreateGroupModalComponent } from './components/pages/create-group-modal/create-group-modal.component';
+import { GroupService } from './services/group.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { CreateGroupModalComponent } from './components/pages/create-group-modal
     LoginComponent,
     FooterComponent,
     GroupsComponent,
-    CreateGroupModalComponent
+    GroupModalComponent
   ],
   imports: [
     BrowserModule,
@@ -123,10 +124,11 @@ import { CreateGroupModalComponent } from './components/pages/create-group-modal
   providers: [
     AuthGuard,
     AuthenticationService,
+    GroupService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [CreateGroupModalComponent]
+  entryComponents: [GroupModalComponent]
 })
 export class AppModule { }

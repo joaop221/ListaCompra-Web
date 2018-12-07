@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Overlay } from '@angular/cdk/overlay';
-import { CreateGroupModalComponent } from '../create-group-modal/create-group-modal.component';
+import { GroupModalComponent } from '../../shared/group-modal/group-modal.component';
+import { GroupModel } from 'src/app/models/group.model';
+import { GroupService } from 'src/app/services/group.service';
 
 
 @Component({
@@ -10,20 +12,23 @@ import { CreateGroupModalComponent } from '../create-group-modal/create-group-mo
   styleUrls: ['./groups.component.scss']
 })
 export class GroupsComponent implements OnInit {
+  groupList: Array<GroupModel>;
 
   constructor(
     private dialog: MatDialog,
-    private overlay: Overlay
+    private overlay: Overlay,
+    private groupService: GroupService
   ) {}
 
   ngOnInit() {
+    this.groupService.listar().subscribe(item => this.groupList = item);
   }
 
-  click() {
+  add() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '500px';
     dialogConfig.height = '200px';
     dialogConfig.scrollStrategy = this.overlay.scrollStrategies.noop();
-    this.dialog.open(CreateGroupModalComponent, dialogConfig);
+    this.dialog.open(GroupModalComponent, dialogConfig);
   }
 }

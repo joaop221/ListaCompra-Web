@@ -1,4 +1,3 @@
 export interface AuthModel {
-    login: string;
-    senha: string;
+    jwtToken: string;
 }

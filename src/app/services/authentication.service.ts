@@ -3,19 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 import { AuthModel } from '../models/auth.model';
+import { LoginModel } from '../models/login.model';
 
 @Injectable()
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(auth: AuthModel) {
-        return this.http.post<any>(`${environment.apiUrl}/Conta/Login`, { nomeUsuario: auth.login, senha: auth.senha })
-            .pipe(map(user => {
-                if (user && user.jwtToken) {
-                    localStorage.setItem('currentAuth', JSON.stringify(user));
+    login(auth: LoginModel) {
+        return this.http.post<AuthModel>(`${environment.apiUrl}/Conta/Login`, { nomeUsuario: auth.login, senha: auth.senha })
+            .pipe(map(authObj => {
+                if (authObj && authObj.jwtToken) {
+                    localStorage.setItem('currentAuth', JSON.stringify(authObj));
                 }
 
-                return user;
+                return authObj;
             }));
     }
 

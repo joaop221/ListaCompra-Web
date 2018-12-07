@@ -1,1 +1,4 @@
-<button (click)="click()">abre modal</button>
+<mat-list role="list">
+    <mat-list-item *ngFor="let group of groupList" role="listitem">{{group.nome}}</mat-list-item>
+</mat-list>
+<button (click)="add()" mat-fab color="primary" class="btn-add"><mat-icon>playlist_add</mat-icon></button>
