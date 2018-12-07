@@ -1,11 +1,21 @@
-<form class="form">
+<form *ngIf="!loading" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
   <mat-form-field class="full-width">
-    <input matInput type="text" placeholder="NickName" />
+    <input formControlName="login" matInput type="text" placeholder="NickName" />
+    <mat-error *ngIf="form.login.invalid">
+      NickName é obrigatório
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <input matInput type="password" placeholder="Senha" />
+    <input formControlName="senha" matInput type="password" placeholder="Senha" />
+    <mat-error *ngIf="form.senha.invalid">
+      Senha é obrigatória
+    </mat-error>
   </mat-form-field>
 
-  <button type="submit" mat-raised-button color="primary">Login</button>
+  <button type="submit" mat-raised-button color="primary" class="btn-login">Login</button>
 </form>
+<div *ngIf="loading">
+  <mat-progress-spinner class="loading-margin" color="primary" mode="indeterminate" value="100">
+  </mat-progress-spinner>
+</div>

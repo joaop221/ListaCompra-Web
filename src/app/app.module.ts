@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -49,11 +50,17 @@ import { MenuComponent } from './components/shared/menu/menu.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { GroupsComponent } from './components/pages/groups/groups.component';
 
-import { guards } from './guards';
+import { AuthGuard } from './guards/auth.guard';
 import { routes } from './app.routing';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { AuthenticationService } from './services/authentication.service';
+import { CreateGroupModalComponent } from './components/pages/create-group-modal/create-group-modal.component';
 
 @NgModule({
   declarations: [
@@ -61,11 +68,15 @@ import { environment } from '../environments/environment';
     HomeComponent,
     MenuComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    GroupsComponent,
+    CreateGroupModalComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     CdkTableModule,
     CdkTreeModule,
     DragDropModule,
@@ -104,13 +115,18 @@ import { environment } from '../environments/environment';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    MatDialogModule,
     ScrollingModule,
     RouterModule.forRoot(routes),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    guards
+    AuthGuard,
+    AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateGroupModalComponent]
 })
 export class AppModule { }
